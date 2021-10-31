@@ -21,13 +21,22 @@ function drawclock(){
         qY = 0.9 * pY;
         pX += R + 10; pY += R + 10;
         qX += R + 10; qY += R + 10;
-        context.strokeStyle = "orange";
-        context.lineWidth = 3;
         var line = new Path2D();
         line.moveTo(pX, pY);
         line.lineTo(qX, qY);
         if(d % 5 ==0){
         context.lineWidth = 15;
+            
+            context.font = "48px serif";
+            context.fillStyle = "red";
+            
+            if(d == 15){
+                context.fillText(12, qX * 0.9 + 20, qY * 0.9 + 45, 30)
+            }else{
+                context.fillText((12 - (d / 5) + 3) % 12, qX * 0.9 + 20, qY * 0.9 + 45, 30)
+            }
+            context.fillStyle = "black";
+
         }else{
             context.lineWidth = 3;
         }
